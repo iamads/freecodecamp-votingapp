@@ -2,27 +2,44 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <h1>Voting App</h1>
+    <p class="lead">Share your opinioins with us!</p>
+    <button class="btn btn-lg btn-success" ng-click="loadNewPoll()">New Poll</button>&nbsp;
+    <button class="btn btn-lg btn-primary" ng-click="loadMyPoll()")>My Polls</button>&nbsp;
+    <button class="btn btn-lg btn-danger" ng-click="loadRecentPoll()")>Recent Polls</button>	
   </div>
 </header>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
-    </div>
-  </div>
+<div ng-show="newPollBoolean">
+		New Poll
+		<form name="pollForm" ng-submit="addPoll()" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+		<input class="form-control" ng-model="newpoll" placeholder="Enter a new poll" required>
+		 Options
+		<input  ng-model="newoption0" required>
+		<input  ng-model="newoption1" required>
+		<input  ng-model="newoption2" required>
+		<input  ng-model="newoption3" required>
+		<button class="btn btn-primary" type="submit" ng-disabled="pollForm.$invalid" disabled="disabled">Submit</button>
+		 </form>
+</div>
+<div ng-show="myPollBoolean">
+	
+	My Poll
+	<ol>
+		<li ng-repeat="poll in mypolls">{{poll.pollname}}</li>
+	</ol>
+</div>
+<div ng-show="recentPollBoolean">
+	
+	
+	Recent Poll
+	<ol>
+		<li ng-repeat="poll in recentpolls">{{poll.pollname}}</li>
+	</ol>	
+
+
 </div>
 
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.1.1 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
+
+
+
