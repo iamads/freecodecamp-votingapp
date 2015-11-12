@@ -61,9 +61,10 @@ angular.module('adsApp')
 // fuction get User's Polls
     $scope.getMyPolls = function(){
 	$http.get('api/polls/mypolls').success(function(polls){
-		$scope.mypolls = polls;	
+	
 	})    
 
     };
 });
 
+  

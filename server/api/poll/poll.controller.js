@@ -30,7 +30,12 @@ exports.mypolls = function(req,res){
 // Creates a new poll in the DB.
 exports.create = function(req, res) {
   console.log(req.body);
-  req.body.author = req.user._id		
+  req.body.author = req.user._id
+  var options = {};
+  for (var i=0;i<req.body.options.length;i++){
+       options[req.body.options[i]]=0;
+  }
+  req.body.options=options;	  
   Poll.create(req.body, function(err, poll) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(poll);

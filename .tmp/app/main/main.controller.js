@@ -58,9 +58,7 @@ angular.module('adsApp').controller('MainCtrl', function ($scope, $http) {
   };
   // fuction get User's Polls
   $scope.getMyPolls = function () {
-    $http.get('api/polls/mypolls').success(function (polls) {
-      $scope.mypolls = polls;
-    });
+    $http.get('api/polls/mypolls').success(function (polls) {});
   };
 });
 //# sourceMappingURL=main.controller.js.map

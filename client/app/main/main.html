@@ -26,7 +26,7 @@
 	
 	My Poll
 	<ol>
-		<li ng-repeat="poll in mypolls">{{poll.pollname}}</li>
+		<li ng-repeat="poll in mypolls">{{poll.pollname}}<button class="btn btn-danger">Delete</button></li>
 	</ol>
 </div>
 <div ng-show="recentPollBoolean">
@@ -34,7 +34,7 @@
 	
 	Recent Poll
 	<ol>
-		<li ng-repeat="poll in recentpolls">{{poll.pollname}}</li>
+		<li ng-repeat="poll in recentpolls">{{poll.pollname}}<button class="btn btn-primary">Vote</button></li>
 	</ol>	
 
 
